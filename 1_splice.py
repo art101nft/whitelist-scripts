@@ -16,11 +16,8 @@ def read_file(name):
         for i in details:
             address = i.split(',')[0].lower()
             amount = int(i.split(',')[1].strip())
-            if name == 'holders.csv':
-                amount = amount + 1
             if address not in master_dict:
                 master_dict[address] = 0
-
             master_dict[address] += amount
 
 if __name__ == '__main__':
@@ -31,4 +28,3 @@ if __name__ == '__main__':
         total_amount += master_dict[i]
         output_dict[i] = str(master_dict[i])
     print(json.dumps(output_dict))
-    # print(total_amount)
